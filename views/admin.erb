@@ -1,0 +1,13 @@
+<input type="text" id="message" placeholder="Enter message" /><br>
+<button type="button" id="send" data-role="button">Push notification</n>
+<script type="text/javascript">
+  $(function() {
+    $('#send').click(function(event) {
+      event.preventDefault();
+      var notification = {
+        message: $('#message').val()
+      };
+      $.post('/push', notification, 'json');
+    })
+  });
+</script>

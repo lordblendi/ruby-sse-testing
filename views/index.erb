@@ -1,0 +1,13 @@
+<h2>Waiting for push notifications</h2>
+<div id="feed"></div>
+<script type="text/javascript">
+   var es = new EventSource('/connect');
+
+    es.onmessage = function(e) {
+      var msg = $.parseJSON(event.data);
+      $('#feed').append(`<div>
+        <strong>${msg.message}</strong>
+        <em> ${msg.timestamp}</em>
+        </div>`);
+    }
+</script>
